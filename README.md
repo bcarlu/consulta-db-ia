@@ -3,6 +3,7 @@
 
 Este proyecto es una API que permite interactuar con una base de datos y un asistente de IA. La API permite hacer pruebas enviando preguntas al asistente de IA de OpenAI y obtener una respuesta con la informacion de la base de datos. Para ello debes tener una cuenta de pago en OpenaAI y debes crear el asistente el cual debe tener configurada la herramienta de funciones en la cual debe estar configurada la funcion "consultarBaseDeDatos" con la siguiente estructura:
 
+```json
 {
   "name": "consultarBaseDeDatos",
   "description": "Esta funcion se encarga de consultar la base de datos para obtener la informacion solicitada por el usuario",
@@ -20,6 +21,7 @@ Este proyecto es una API que permite interactuar con una base de datos y un asis
     ]
   }
 }
+```
 
 ## Requisitos
 
