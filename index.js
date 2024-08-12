@@ -3,6 +3,7 @@ import mysql from 'mysql2/promise';
 import { config } from 'dotenv';
 import dbRoutes from './routes/dbRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
+import ngrok from '@ngrok/ngrok'
 
 config();
 
@@ -27,3 +28,7 @@ app.use('/', aiRoutes);
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
+// Conexion a Ngrok. Descomentar para publicar el servidor local y acceder desde internet.
+//ngrok.connect({ addr: 3000, authtoken_from_env: true })
+//	.then(listener => console.log(`Ingress established at: ${listener.url()}`));
