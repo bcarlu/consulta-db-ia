@@ -75,7 +75,7 @@ El servidor estará disponible en `http://localhost:3000`.
 
 - **GET `/crear-nueva-db`**: Crea la base de datos, una tabla y llena esta con datos de ejemplo.
   
-- **GET `/personas`**: Lista todas las personas de la tabla.
+- **GET `/personas`**: Lista todas las personas de la base de datos. Esto sirve para ver la informacion almacenada y comprobar que la respuesta del asistente sea correcta.
 
 ### 2. Asistente de IA
 
