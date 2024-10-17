@@ -34,8 +34,8 @@ Este proyecto es una API que permite interactuar con una base de datos y un asis
 1. **Clona este repositorio**:
 
    ```bash
-   git clone https://github.com/bcarlu/hola-mundo-ia
-   cd hola-mundo-ia
+   git clone https://github.com/bcarlu/consulta-db-ia
+   cd consulta-db-ia
    ```
 
 2. **Instala las dependencias**:
