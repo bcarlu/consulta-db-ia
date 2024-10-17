@@ -74,8 +74,8 @@ export const generarRespuestaIA = async (mensajeUsuario) => {
     const handleRunStatus = async (run) => {
       if (run.status === "completed") {
         const messages = await openai.beta.threads.messages.list(thread.id);
-        console.log(messages.data);
-        return { respuesta: messages.data };
+        console.log(messages.data[0].content[0].text.value);
+        res.json({ respuesta: messages.data[0].content[0].text.value });
       } else if (run.status === "requires_action") {
         console.log("Ejecutando acciones requeridas:", run.status);
         return await handleRequiresAction(run);
