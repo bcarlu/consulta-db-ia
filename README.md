@@ -22,6 +22,41 @@ Este proyecto es una API que permite interactuar con una base de datos y un asis
   }
 }
 ```
+Y en las instrucciones del asistente agregar el esquema de la base de datos, por ejemplo:
+
+```plaintext
+Para responder las preguntas de los usuarios debes realizar  consultas a la base de datos de la empresa. Para ello debes llamar la la función `consultarBaseDeDatos(query)` y en el parametro 'query' debes enviar la consulta SQL que se debe ejecutar. Luego de que recibas la informacion de la base de datos, asegúrate de que la información proporcionada al cliente sea clara y precisa. Para enviar la consulta SQL te debes apoyar en el siguiente esquema:
+
+[
+    "CREATE TABLE personas (\n  id int NOT NULL AUTO_INCREMENT,\n  nombre varchar(255) COLLATE utf8mb3_spanish_ci NOT NULL,\n  frase text COLLATE utf8mb3_spanish_ci NOT NULL,\n  PRIMARY KEY (id)\n) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci"
+]
+
+Aquí tienes algunos ejemplos de preguntas y cómo deberían ser respondidas:
+
+1. **Pregunta del cliente**: "¿Cuántas personas hay en la empresa?"
+   - **Consulta SQL**: `SELECT COUNT(*) FROM personas;`
+   - **Respuesta esperada**: "Actualmente, hay [número] personas en la empresa."
+
+2. **Pregunta del cliente**: "¿Cuál es la frase de María?"
+   - **Consulta SQL**: `SELECT nombre, frase FROM personas WHERE nombre LIKE 'María%';`
+   - **Respuesta esperada**: "Las frases de las personas llamadas María son:\n- [nombre]: [frase]\n- [nombre]: [frase]"
+
+#### Formato del prompt:
+1. **Pregunta del cliente**: [Pregunta del cliente]
+   - **Consulta SQL**: [Consulta SQL]
+   - **Respuesta esperada**: [Respuesta esperada]
+
+### Ejemplo de ejecución:
+
+Pregunta del cliente: "¿Cuántas personas hay en la empresa?"
+Consulta SQL: `SELECT COUNT(*) FROM personas;`
+Respuesta esperada: "Actualmente, hay [número] personas en la empresa."
+
+Pregunta del cliente: "¿Cuál es la frase de María?"
+Consulta SQL: `SELECT nombre, frase FROM personas WHERE nombre LIKE 'María%';`
+Respuesta esperada: "Las frases de las personas llamadas María son:\n- [nombre]: [frase]\n- [nombre]: [frase]"
+
+```
 
 ## Requisitos
 
@@ -59,7 +94,7 @@ Este proyecto es una API que permite interactuar con una base de datos y un asis
 4. **Levantar los servicios usando Docker Compose:**:
 
    ```bash
-   docker-compose up -d
+   docker-compose up
    ```
 5. **Si no deseas utilizas docker debes lanzar el servidor y tener configurado mysql localmente**:
 
